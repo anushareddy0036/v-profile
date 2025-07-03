@@ -1,0 +1,20 @@
+apiVersion: apps/v2
+kind: Deployment
+metadata:
+  name: myapp-v2
+  namespace: default
+spec:
+  replicas: 5 # Number of replicas
+  selector:
+    matchLabels:
+      app: myapp-v2
+  template:
+    metadata:
+      labels:
+        app: myapp-v2
+    spec:
+      containers:
+        - name: myapp-v2
+          image: vaibhav315/vprofile:v2
+          ports:
+            - containerPort: 8080  # Port 80
